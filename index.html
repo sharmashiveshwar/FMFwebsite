@@ -1,702 +1,463 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
-
-
 <head>
-
     <title>Fakir Mohan Foundation</title>
-
-
-
-    <!-- Required meta tags -->
-
     <meta charset="utf-8">
-
-    <meta charset="utf-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <meta name="google-site-verification" content="jB_qBa1IcN9JWiAoKX3QPkQg60Qmc7Dtwzc17Ii32NE" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-174142670-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+        function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'UA-174142670-1');
     </script>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel='shortcut icon' type='image/x-icon' href='/ico/FMF - Logo.ico' />
-
-
-    <!-- Bootstrap CSS -->
-
     <link rel="stylesheet" href="css/bootstrap.min.css">
-
-
-
-
-
-    <!-- Swiper CSS -->
-
     <link rel="stylesheet" href="css/swiper.min.css">
-
-
-
-    <!-- Styles -->
-
     <link rel="stylesheet" href="style.css">
 
+    <style>
+        .home-page-team, .home-page-what-we-do, .home-page-gallery-preview {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        .team-card {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+            padding: 25px;
+            text-align: center;
+            margin-bottom: 30px;
+            height: 100%;
+            transition: all 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+        }
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 35px rgba(62, 19, 47, 0.12);
+        }
+        .team-card .team-img-container {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: -65px auto 20px auto;
+            border: 6px solid #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
+            flex-shrink: 0;
+        }
+        .team-card .card-content {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; /* Allows content to fill the card */
+            justify-content: center;
+        }
+        .team-card.no-image .card-content {
+             padding-top: 20px;
+        }
+        .team-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .team-card h4 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #3E132F;
+            margin-top: 0;
+            margin-bottom: 8px;
+            line-height: 1.2em;
+        }
+        .team-card .designation {
+            font-size: 14px;
+            color: #f68f07;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 12px;
+            min-height: 20px;
+            line-height: 1.2em;
+        }
+        .team-card .description {
+            font-size: 14px;
+            color: #6c757d;
+            line-height: 1.5em;
+            flex-grow: 1;
+        }
+        .section-heading .entry-title, .team-section-title {
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: #3E132F;
+        }
+        .team-section-title {
+            font-size: 28px;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        .team-section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #f68f07;
+        }
+        .managing-trustee .team-card {
+            background: linear-gradient(135deg, #3E132F, #5a2b4a);
+        }
+        .managing-trustee .team-card h4,
+        .managing-trustee .team-card .description {
+            color: #fff;
+        }
+        .home-page-about-snippet {
+            padding: 80px 0;
+            background: #fff;
+        }
+        .home-page-about-snippet .entry-title {
+            margin-bottom: 20px;
+        }
+        .home-page-about-snippet p {
+            color: #6c757d;
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+        .home-page-what-we-do {
+            position: relative;
+            overflow: hidden;
+            background: #fff;
+        }
+        .home-page-what-we-do:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(315deg, rgba(252, 250, 255, 0.95), rgba(248, 249, 250, 0.95));
+            animation: subtle-gradient-animation 15s ease infinite;
+            z-index: 0;
+        }
+        @keyframes subtle-gradient-animation {
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+        .home-page-what-we-do .container {
+            position: relative;
+            z-index: 1;
+        }
+        .feature-box {
+            background: #fff;
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        .feature-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .feature-box .icon {
+            font-size: 45px;
+            color: #f68f07;
+            margin-bottom: 20px;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+        .feature-box:hover .icon {
+            transform: rotateY(180deg);
+        }
+        .feature-box h4 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #3E132F;
+            margin-bottom: 15px;
+        }
+        .feature-box p {
+            color: #6c757d;
+            font-size: 15px;
+        }
+        .section-bottom-button {
+            margin-top: 40px;
+        }
+        .home-page-gallery-preview {
+             background: #ffffff;
+        }
+        .scrolling-wrapper-container {
+            overflow: hidden;
+        }
+        .scrolling-wrapper {
+            display: flex;
+            padding-bottom: 20px;
+            animation: scroll 30s linear infinite;
+        }
+        .scrolling-wrapper:hover {
+            animation-play-state: paused;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .gallery-card {
+            flex-shrink: 0;
+            width: 300px;
+            height: 220px;
+            margin-right: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .gallery-card:hover {
+            transform: scale(1.05);
+        }
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .home-page-cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(62, 19, 47, 0.9), rgba(90, 43, 74, 0.9)), url('images/1.jpg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            color: #fff;
+        }
+        .home-page-cta h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .home-page-cta p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .btn-light-outline {
+            background-color: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+            font-weight: bold;
+            padding: 15px 30px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        .btn-light-outline:hover {
+            background-color: #fff;
+            color: #3E132F;
+        }
+    </style>
 </head>
-
-
-
 <body>
-
     <header class="site-header">
-
-
-
-
-
-        <div class="nav-bar" style="background-color:#3E132F; ">
-
+        <div class="nav-bar" style="background-color:#3E132F;">
             <div class="container">
-
                 <div class="row">
-
                     <div class="col-12 d-flex flex-wrap justify-content-between align-items-center">
-
                         <div class="site-branding d-flex align-items-center">
-
-                            <a><img style="height:80px; width:150px; margin-bottom:10px;" class="d-block"
-                                    src="images/fmf-logo.jpg" alt="logo"></a>
-
+                            <a><img style="height:80px; width:150px; margin-bottom:10px;" class="d-block" src="images/fmf-logo.jpg" alt="logo"></a>
                         </div>
-
-                        <!-- .site-branding -->
-
-
-
                         <nav class="site-navigation d-flex justify-content-end align-items-center">
-
                             <ul class="d-flex flex-column flex-lg-row justify-content-lg-end align-content-center">
-
                                 <li><a href="index.html">Home</a></li>
-
                                 <li><a href="about.html">About us</a></li>
-
                                 <li><a href="manav-dharma.html">Manav Dharma</a></li>
-
                                 <li><a href="activities.html">Activities</a></li>
-
                                 <li><a href="gallery.html">Gallery</a></li>
-
                                 <li><a href="update.html">News</a></li>
-
                                 <li><a href="message.html">Messages</a></li>
-
                                 <li><a href="contact.html">Contact</a></li>
-
                             </ul>
-
                         </nav>
-
-                        <!-- .site-navigation -->
-
-
-
-                        <div class="hamburger-menu d-lg-none">
-
-                            <span></span>
-
-                            <span></span>
-
-                            <span></span>
-
-                            <span></span>
-
-                        </div>
-
-                        <!-- .hamburger-menu -->
-
+                        <div class="hamburger-menu d-lg-none"><span></span><span></span><span></span><span></span></div>
                     </div>
-
-                    <!-- .col -->
-
                 </div>
-
-                <!-- .row -->
-
             </div>
-
-            <!-- .container -->
-
         </div>
-
-        <!-- .nav-bar -->
-
     </header>
 
-    <!-- .site-header -->
-
-
-
     <div class="swipe hero-slider">
-
         <div class="swiper-wrapper">
-
             <div class="swiper-slide hero-content-wrap">
-
                 <img src="images/1.jpg" alt="">
-
-
-
                 <div class="hero-content-overlay position-absolute w-100 h-100">
-
                     <div class="container h-100">
-
                         <div class="row h-100">
-
                             <div class="col-12 col-lg-8 d-flex flex-column justify-content-center align-items-start">
-
-
-
                                 <header class="entry-header">
-
-                                    <h4 style="font-size: 4vmax; line-height: 1.1;">Carrying out <br> the legacy of
-
-                                    </h4>
-
-                                    <h4 style="font-size: 2.5vmax;line-height: 1.1; font-weight: 400;"> Fakir Mohan
-                                        Senapati
-
-                                    </h4>
-
+                                    <h4 style="font-size: 4vmax; line-height: 1.1;">Carrying out <br> the legacy of</h4>
+                                    <h4 style="font-size: 2.5vmax;line-height: 1.1; font-weight: 400;"> Fakir Mohan Senapati</h4>
                                 </header>
-
-                                <!-- .entry-header -->
-
-
-
-
-
-
-
-                                <!-- .entry-footer -->
-
-
-
                             </div>
-
-                            <!-- .col -->
-
                         </div>
-
-                        <!-- .row -->
-
                     </div>
-
-                    <!-- .container -->
-
                 </div>
-
-                <!-- .hero-content-overlay -->
-
             </div>
-
-            <!-- .hero-content-wrap -->
-
-
-
-            <div class="swiper-slide hero-content-wrap">
-
-                <img src="images/1.jpg" alt="">
-
-
-
-                <div class="hero-content-overlay position-absolute w-100 h-100">
-
-                    <div class="container h-100">
-
-                        <div class="row h-100">
-
-                            <div class="col-12 col-lg-8 d-flex flex-column justify-content-center align-items-start">
-
-                                <header class="entry-header">
-
-                                    <h4 style="font-size: 4vmax; line-height: 1.1;">Carrying out <br> the legacy of
-
-                                    </h4>
-
-                                    <h4 style="font-size: 2.5vmax;line-height: 1.1; font-weight: 400;"> Fakir Mohan
-                                        Senapati
-
-                                    </h4>
-
-                                </header>
-
-                                <!-- .entry-header -->
-
-
-
-
-
-
-
-                                <!-- .entry-footer -->
-
-
-
-
-
-
-
-
-
-                            </div>
-
-                            <!-- .col -->
-
-                        </div>
-
-                        <!-- .row -->
-
-                    </div>
-
-                    <!-- .container -->
-
-                </div>
-
-                <!-- .hero-content-overlay -->
-
-            </div>
-
-            <!-- .hero-content-wrap -->
-
-
-
-
-
         </div>
-
-        <!-- .swiper-wrapper -->
-
-
-
-        <div class="pagination-wrap position-absolute w-100">
-
-            <div class="container">
-
-                <div class="swiper-pagination"></div>
-
-            </div>
-
-            <!-- .container -->
-
-        </div>
-
-        <!-- .pagination-wrap -->
-
-
-
-        <!-- Add Arrows -->
-
-
-
+        <div class="pagination-wrap position-absolute w-100"><div class="container"><div class="swiper-pagination"></div></div></div>
     </div>
 
-    <!-- .hero-slider -->
-
-
-
-
-
-
-
-    <div class="home-page-events">
-
+    <div class="home-page-about-snippet">
         <div class="container">
-
             <div class="row">
-
-                <div class="col-12 col-lg-6">
-
-
-
-                    <div class="upcoming-events">
-
-                        <div class="section-heading">
-
-                            <h2 class="entry-title" style="margin-bottom: 2rem;">Online Events</h2>
-
-                        </div>
-
-                        <!-- .section-heading -->
-
-
-
-                        <div class="event-wrap d-flex flex-wrap justify-content-between">
-
-                            <figure class="m-0">
-
-                                <img src="https://media.giphy.com/media/vn94i36xnlwEE/giphy.gif" alt="poster"
-                                    style="height: 200px;">
-
-                            </figure>
-
-
-
-                            <div class="event-content-wrap">
-
-                                <header
-                                    class="entry-header d-flex flex-wrap align-items-center justify-content-between">
-
-                                    <h3 class="entry-title w-100 m-0">
-
-                                        <h2 style="margin-top: 5px;">Poetry recitation competition</h2>
-
-                                    </h3>
-
-                                    <p>Aug 6 - 7, 2020 </p>
-                                   <a href="certificates.html"> <button href=>Certificates</button></a>
-
-
-                                    <!-- /row -->
-
-
-
-                                    <div>
-
-
-                                    </div>
-
-                                    <!-- .posted-date -->
-
-                                </header>
-
-
-
-
-
-
-                                <!-- .entry-content -->
-
-
-
-
-
-                                <!-- .entry-footer -->
-
-                            </div>
-
-                            <!-- .event-content-wrap -->
-
-                        </div>
-
-                        <!-- .event-wrap -->
-
-
-
-
-
-                    </div>
-
-                    <!-- .upcoming-events -->
-
-
-
-                    <div class="row" style="margin-top: 2rem;">
-
-
-
-                        <!-- /col -->
-
-                    </div>
-
+                <div class="col-md-12 text-center">
+                    <div class="section-heading"><h2 class="entry-title">About The Foundation</h2></div>
+                    <p>Fakir Mohan Foundation is a tribute to the heritage of Odisha with special focus on the legacy of Fakir Mohan Senapati the leading light of Indian literature. The foundation will work (globally, nationally and in Odisha), to deepen and sharpen people’s understanding of the rich socio- cultural roots and identity of its people.</p>
+                    <a href="about.html" class="btn gradient-bg">Learn More</a>
                 </div>
-
-                <!-- .col -->
-
-
-
-                <div class="col-12 col-lg-6">
-
-                    <div class="Webinar">
-
-                        <div class="section-heading">
-
-                            <h2 class="entry-title" style="margin-bottom: 2rem;">Recent Events</h2>
-
-                        </div>
-
-                        <!-- .section-heading -->
-
-
-
-
-
-
-
-                        <div class="posted-date">
-
-                            <p>14th June 2020, 4:30 PM IST </p>
-
-                            <h1>Webinar Details</h1>
-
-                        </div>
-
-                        <!-- .posted-date -->
-
-
-
-
-
-                        <div class="entry-content text-justify" style=" font-size:14px; color:black">
-
-                            <p class="m-0">Celebrated Vyasa Kavi Fakir Mohan Senapati's Memorial Day on 14th June 2020,
-                                4:30 PM IST</p>
-
-                            <p>
-
-                                Topic: Eco-Concerns, Literature and Youth<br> Introducing the Webinar: Dr Rabindra Kumar
-                                Das, Visva-Bharati Santiniketan. Inaugural Speech: His Excellency, the Governor of
-                                Odisha, Shri Ganeshi Lal. Opening Speech: Dr Monica
-
-                                Das, Retd. Associate Professor, Delhi University/Founder and Managing Trustee of Fakir
-                                Mohan Foundation (FMF).<br> Speech by Resource Person: Dr Bulbul Dhar-James, Professor
-                                Jamia Milia University, New Delhi.<br> Keynote
-
-                                Speaker: Shri Dash Benhur, Eminent Speaker, Writer and Gandhian Studies Expert Anchor
-                                Discussion Session - Dr Hiranmayee Mishra, Prof. and Writer, Chief Executive Director,
-                                FMF. <br> Vote of Thanks: Sangha Mitra Bhanja,
-
-                                Lecturer Ramadevi College, Member Steering Committee, FMF.<br> Technical Support: Prince
-                                Sharma, New Delhi.
-
-                            </p>
-
-
-
-
-
-
-
-
-
-
-
-                        </div>
-
-                        <!-- .entry-content -->
-
-
-
-                        <div class="entry-footer mt-5">
-
-                            <a href="https://youtu.be/Hggfk0qVxLc" class="btn btn-primary btn-block">Click Here to
-                                watch</a>
-
-                        </div>
-
-                        <!-- .entry-footer -->
-
-                    </div>
-
-                    <!-- .cause-content-wrap -->
-
-
-
-
-
-                </div>
-
-                <!-- .cause-wrap -->
-
-
-
-
-
             </div>
-
-            <!-- .featured-cause -->
-
         </div>
-
-        <!-- .col -->
-
+    </div>
+    
+    <div class="home-page-what-we-do">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="section-heading"><h2 class="entry-title">What We Do</h2></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-box text-center">
+                        <i class="fa fa-book icon"></i><h4>Promote Literature</h4>
+                        <p>Carrying forward the literary legacy of Fakir Mohan Senapati through events, competitions, and publications.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                     <div class="feature-box text-center">
+                        <i class="fa fa-globe icon"></i><h4>Cultural Exchange</h4>
+                        <p>Fostering a deeper understanding of Odia culture and identity on a national and global stage.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                     <div class="feature-box text-center">
+                        <i class="fa fa-users icon"></i><h4>Youth Engagement</h4>
+                        <p>Inspiring the next generation to connect with their heritage through interactive programs and activities.</p>
+                    </div>
+                </div>
+            </div>
+             <div class="row text-center section-bottom-button">
+                <div class="col-12">
+                     <a href="activities.html" class="btn gradient-bg">View Our Activities</a>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- .row -->
-
+    <div class="home-page-team">
+        <div class="container">
+            <div class="row"><div class="col-12 text-center"><div class="section-heading"><h2 class="entry-title">Our Team</h2></div></div></div>
+            <div class="row justify-content-center"><div class="col-12 col-md-6 col-lg-4 managing-trustee"><div class="team-card"><div class="team-img-container"><img src="INT_IMAGES/monica_das.jpg" alt="Dr Monica Das"></div><div class="card-content"><h4>Dr Monica Das</h4><span class="designation">Managing Trustee / Trustee for life</span></div></div></div></div>
+            <div class="row"><div class="col-12 text-center"><h3 class="team-section-title">Patron-in-Chief</h3></div><div class="col-sm-offset-4 col-sm-4"><div class="team-card"><div class="team-img-container"><img src="INT_IMAGES/N1.png" alt="Ananga Patnaik"></div><div class="card-content"><h4>Ananga Patnaik</h4><span class="designation">Patron-in-Chief FMF</span><p class="description">(Former Justice Supreme Court of India)</p></div></div></div></div>
+            <div class="row"><div class="col-12 text-center"><h3 class="team-section-title">Board of Trustees</h3></div><div class="col-12 col-sm-6 col-md-3"><div class="team-card"><div class="team-img-container"><img src="INT_IMAGES/N2.jpg" alt="Lalit Mansingh"></div><div class="card-content"><h4>Lalit Mansingh</h4><p class="description">(Former Diplomat)</p></div></div></div><div class="col-12 col-sm-6 col-md-3"><div class="team-card"><div class="team-img-container"><img src="INT_IMAGES/N3.jpg" alt="S C Nanda"></div><div class="card-content"><h4>S C Nanda</h4><p class="description">(Advocate Supreme Court)</p></div></div></div><div class="col-12 col-sm-6 col-md-3"><div class="team-card"><div class="team-img-container"><img src="INT_IMAGES/N4.jpg" alt="Bulbul Dhar"></div><div class="card-content"><h4>Bulbul Dhar</h4><p class="description">(Prof Jamia Millia Islamia)</p></div></div></div><div class="col-12 col-sm-6 col-md-3"><div class="team-card"><div class="team-img-container"><img src="INT_IMAGES/N5.jpg" alt="Udaya Bhanu Das"></div><div class="card-content"><h4>Udaya Bhanu Das</h4><p class="description">(Former Management Professional, BHEL)</p></div></div></div></div>
+            <div class="row"><div class="col-12 text-center"><h3 class="team-section-title">Board of Advisors</h3></div><div class="col-12 col-sm-6 col-md-3"><div class="team-card"><div class="team-img-container"><img src="INT_IMAGES/N6.jpeg" alt="Satya P Mohanty"></div><div class="card-content"><h4>Satya P Mohanty</h4><p class="description">(Prof Cornell University USA)</p></div></div></div><div class="col-12 col-sm-6 col-md-3"><div class="team-card"><div class="team-img-container"><img src="INT_IMAGES/N7.jpg" alt="Lalatendu Mahapatra"></div><div class="card-content"><h4>Lalatendu Mahapatra</h4><p class="description">Former Director National Museum, New Delhi. Currently Director Archives, High court of Odisha</p></div></div></div><div class="col-12 col-sm-6 col-md-3"><div class="team-card"><div class="team-img-container"><img src="INT_IMAGES/N8.jpg" alt="Asit Mohanty"></div><div class="card-content"><h4>Asit Mohanty</h4><p class="description">(Eminent Journalist / Editor Sambad)</p></div></div></div><div class="col-12 col-sm-6 col-md-3"><div class="team-card"><div class="team-img-container"><img src="INT_IMAGES/N9.jpg" alt="Rakshak Nayak"></div><div class="card-content"><h4>Rakshak Nayak</h4><p class="description">(Eminent Writer)</p></div></div></div></div>
+            <div class="row"><div class="col-12 text-center"><h3 class="team-section-title">Odisha Chapter (FMF)</h3></div><div class="col-12 col-sm-6 col-md-4"><div class="team-card"><div class="team-img-container"><img src="INT_IMAGES/N10.jpg" alt="Dr Mihir Kumar Sahoo"></div><div class="card-content"><h4>Dr Mihir Kumar Sahoo</h4><span class="designation">Executive Director (+91 86177 89665)</span><p class="description">(Former Officer in charge, Eastern region Sahitya Akademi)</p></div></div></div><div class="col-12 col-sm-6 col-md-4"><div class="team-card"><div class="team-img-container"><img src="INT_IMAGES/N11.jpg" alt="Debanand Das"></div><div class="card-content"><h4>Debanand Das</h4><span class="designation">Secretary</span><p class="description">(Assistant Professor OES)</p></div></div></div><div class="col-12 col-sm-6 col-md-4"><div class="team-card"><div class="team-img-container"><img src="INT_IMAGES/N12.jpg" alt="Shrimati Anindita Das"></div><div class="card-content"><h4>Shrimati Anindita Das</h4><span class="designation">Cultural In charge</span><p class="description">(Professional Vocal Artiste)</p></div></div></div>
+            <div class="col-12 col-sm-6 col-md-4 col-md-offset-2"><div class="team-card no-image"><div class="card-content"><h4>Dr Sanghamitra</h4><span class="designation">Coordinator</span><p class="description">(Sri Jaydev College of Education and Technology. Bbsr.)</p></div></div></div>
+            <div class="col-12 col-sm-6 col-md-4"><div class="team-card no-image"><div class="card-content"><h4>Dr Sarmistha Dhisana</h4><span class="designation">Coordinator</span><p class="description">(Odiya University, Puri)</p></div></div></div></div>
+        </div>
+    </div>
+    
+    <div class="home-page-gallery-preview">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="section-heading"><h2 class="entry-title">Glimpses of Our Journey</h2></div>
+                </div>
+            </div>
+        </div>
+        <div class="scrolling-wrapper-container">
+            <div class="scrolling-wrapper">
+                <div class="gallery-card"><img src="images/photo-gallery/01.JPG" alt="Gallery Image 1"></div>
+                <div class="gallery-card"><img src="images/photo-gallery/02.JPG" alt="Gallery Image 2"></div>
+                <div class="gallery-card"><img src="images/photo-gallery/03.JPG" alt="Gallery Image 3"></div>
+                <div class="gallery-card"><img src="images/photo-gallery/04.JPG" alt="Gallery Image 4"></div>
+                <div class="gallery-card"><img src="images/photo-gallery/05.JPG" alt="Gallery Image 5"></div>
+                <div class="gallery-card"><img src="images/photo-gallery/06.JPG" alt="Gallery Image 6"></div>
+                <div class="gallery-card"><img src="images/photo-gallery/07.JPG" alt="Gallery Image 7"></div>
+                <div class="gallery-card"><img src="images/photo-gallery/08.JPG" alt="Gallery Image 8"></div>
+                <div class="gallery-card"><img src="images/photo-gallery/01.JPG" alt="Gallery Image 1"></div>
+                <div class="gallery-card"><img src="images/photo-gallery/02.JPG" alt="Gallery Image 2"></div>
+                <div class="gallery-card"><img src="images/photo-gallery/03.JPG" alt="Gallery Image 3"></div>
+                <div class="gallery-card"><img src="images/photo-gallery/04.JPG" alt="Gallery Image 4"></div>
+                <div class="gallery-card"><img src="images/photo-gallery/05.JPG" alt="Gallery Image 5"></div>
+                <div class="gallery-card"><img src="images/photo-gallery/06.JPG" alt="Gallery Image 6"></div>
+                <div class="gallery-card"><img src="images/photo-gallery/07.JPG" alt="Gallery Image 7"></div>
+                <div class="gallery-card"><img src="images/photo-gallery/08.JPG" alt="Gallery Image 8"></div>
+            </div>
+        </div>
+         <div class="row text-center section-bottom-button">
+            <div class="col-12">
+                 <a href="gallery.html" class="btn gradient-bg">View Full Gallery</a>
+            </div>
+        </div>
     </div>
 
-    <!-- .container -->
-
+    <div class="home-page-cta">
+        <div class="container text-center">
+            <h2>Join Us in Our Mission</h2>
+            <p>Become a part of the movement to celebrate and preserve the rich heritage of Odisha.</p>
+            <a href="contact.html" class="btn btn-light-outline">Get Involved</a>
+        </div>
     </div>
 
-    <!-- .home-page-events -->
-
-
-
-
-<!-- Load Facebook SDK for JavaScript -->
-<div id="fb-root"></div>
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      xfbml            : true,
-      version          : 'v8.0'
-    });
-  };
-
-  (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-<!-- Your Chat Plugin code -->
-<div class="fb-customerchat"
-  attribution=setup_tool
-  page_id="588325787850805"
-theme_color="#a695c7">
-</div>
-
-
+    <div id="fb-root"></div>
+    <script>
+      window.fbAsyncInit = function() {FB.init({xfbml:true,version:'v8.0'});};
+      (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <div class="fb-customerchat" attribution=setup_tool page_id="588325787850805" theme_color="#a695c7"></div>
 
     <footer class="site-footer" style="background:violet;">
-
         <div class="footer-widgets">
-
             <div class="container">
-
                 <div class="row">
-
                     <div class="col-12 col-md-6 col-lg-6">
-
                         <div class="foot-about ">
-
                             <h2 style="margin-bottom:30px;">About Us</h2>
-
-
-
-                            <p class="text-justify">Fakir Mohan Foundation is a tribute to the heritage of Odisha with
-                                special focus on the legacy of Fakir Mohan Senapati the leading light of Indian
-                                literature. The foundation will work (globally, nationally and in Odisha), to
-
-                                deepen and sharpen people’s understanding of the rich socio- cultural roots and identity
-                                of its people.....<a href="about.html" style="color: #f68f07;">more</a></p>
-
-
-
+                            <p class="text-justify">Fakir Mohan Foundation is a tribute to the heritage of Odisha with special focus on the legacy of Fakir Mohan Senapati the leading light of Indian literature...<a href="about.html" style="color: #f68f07;">more</a></p>
                         </div>
-
-                        <!-- .foot-about -->
-
                     </div>
-
-                    <!-- .col -->
-
-
-
-
-
-
-
-
-
-
-
                     <div class="col-12 col-md-6 col-lg-6">
-
                         <div class="foot-contact">
-
                             <h2 style=" margin-bottom:20px;">Contact Us</h2>
-
-
-
                             <ul>
-
-
-
-                                <li><i class="fa fa-envelope"></i><span><a
-                                            href="mailto:dasmonica@gmail.com">dasmonica@gmail.com </a></span></li>
-
-                                <li><i class="fa fa-link"></i><span><a href=" http://dr-monica-das.online/ ">
-
-                                            http://dr-monica-das.online/</a></span></li>
-
-                                <li><i class="fa fa-map-marker"></i><span>
-
-                                        217, Kedar Gauri Road, Basant Niwas, Bhubaneswar, Odisha 751002.</span></li>
-
-
-
+                                <li><i class="fa fa-envelope"></i><span><a href="mailto:dasmonica@gmail.com">dasmonica@gmail.com</a></span></li>
+                                <li><i class="fa fa-link"></i><span><a href="http://dr-monica-das.online/">http://dr-monica-das.online/</a></span></li>
+                                <li><i class="fa fa-map-marker"></i><span>217, Kedar Gauri Road, Basant Niwas, Bhubaneswar, Odisha 751002.</span></li>
                             </ul>
-
                         </div>
-
-                        <!-- .foot-contact -->
-
-
-
-
-
                     </div>
-
-                    <!-- .row -->
-
                 </div>
-
-                <!-- .container -->
-
             </div>
-
-            <!-- .footer-widgets -->
-
-
-
-
-
+        </div>
     </footer>
 
-    <!-- .site-footer -->
-
-
     <script type='text/javascript' src='js/jquery.js'></script>
-
     <script type='text/javascript' src='js/jquery.collapsible.min.js'></script>
-
     <script type='text/javascript' src='js/swiper.min.js'></script>
-
     <script type='text/javascript' src='js/jquery.countdown.min.js'></script>
-
     <script type='text/javascript' src='js/circle-progress.min.js'></script>
-
     <script type='text/javascript' src='js/jquery.countTo.min.js'></script>
-
     <script type='text/javascript' src='js/jquery.barfiller.js'></script>
-
     <script type='text/javascript' src='js/custom.js'></script>
-
-
 </body>
-
-
-
 </html>
