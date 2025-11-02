@@ -260,6 +260,86 @@
             background-color: #fff;
             color: #3E132F;
         }
+
+        /* Styles for Book Launch Section */
+        .home-page-book-launch {
+            padding: 80px 0;
+            background: #fff;
+        }
+        .book-launch-text h4 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #3E132F;
+            margin-bottom: 15px;
+        }
+        .book-launch-text p {
+            color: #6c757d;
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        .book-launch-text .btn {
+             margin-top: 10px;
+        }
+        
+        /* Styles for Book Launch Slider */
+        .book-launch-slider {
+            width: 100%;
+            height: 400px; /* You can adjust this height */
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+        }
+        .book-launch-slider .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        .book-launch-slider .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .book-launch-slider .swiper-pagination-bullet {
+            background: #3E132F;
+            opacity: 0.6;
+        }
+        .book-launch-slider .swiper-pagination-bullet-active {
+            background: #f68f07;
+            opacity: 1;
+        }
+
+        /* Responsive adjustment for mobile */
+        @media (max-width: 768px) {
+            .book-launch-slider {
+                margin-bottom: 30px;
+                height: 300px; /* Adjust height for mobile */
+            }
+            .book-launch-text {
+                text-align: center;
+            }
+        }
+        
+        /* === FIX FOR CONFLICTING CSS === */
+        @media only screen and (min-width: 768px) {
+            .book-launch-slider.swiper-container {
+                display: block; /* Override the display:none rule from style.css */
+            }
+        }
+        
     </style>
 </head>
 <body>
@@ -358,6 +438,37 @@
         </div>
     </div>
 
+    <div class="home-page-book-launch">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="section-heading"><h2 class="entry-title">"Fakirnama" Book Launch</h2></div>
+                </div>
+            </div>
+            <div class="row" style="align-items: center;">
+                <div class="col-md-6">
+                    <div class="swiper-container book-launch-slider">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="INT_IMAGES/f1.jpg" alt="Fakirnama Launch Photo 1"></div>
+                            <div class="swiper-slide"><img src="INT_IMAGES/f2.jpg" alt="Fakirnama Launch Photo 2"></div>
+                            <div class="swiper-slide"><img src="INT_IMAGES/f3.jpg" alt="Fakirnama Launch Photo 3"></div>
+                            <div class="swiper-slide"><img src="INT_IMAGES/f4.jpg" alt="Fakirnama Launch Photo 4"></div>
+                            <div class="swiper-slide"><img src="INT_IMAGES/f5.jpg" alt="Fakirnama Launch Photo 5"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="book-launch-text">
+                        <h4>A New Tribute to a Literary Legend</h4>
+                        <p>We are thrilled to announce the successful launch of "Fakirnama," a special volume dedicated to the life and works of Fakir Mohan Senapati. The event was a wonderful gathering of scholars, writers, and patrons of Odia literature.</p>
+                        <p>This collection delves deep into the nuances of his masterpieces, offering fresh perspectives and celebrating his enduring legacy. Explore glimpses from the event and learn more about this significant publication.</p>
+                        <a href="gallery.html" class="btn gradient-bg">View Event Gallery</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="home-page-team">
         <div class="container">
             <div class="row"><div class="col-12 text-center"><div class="section-heading"><h2 class="entry-title">Our Team</h2></div></div></div>
@@ -451,7 +562,6 @@
         </div>
     </footer>
 
-    <script type='text/javascript' src='js/jquery.js'></script>
     <script type='text/javascript' src='js/jquery.collapsible.min.js'></script>
     <script type='text/javascript' src='js/swiper.min.js'></script>
     <script type='text/javascript' src='js/jquery.countdown.min.js'></script>
@@ -459,5 +569,21 @@
     <script type='text/javascript' src='js/jquery.countTo.min.js'></script>
     <script type='text/javascript' src='js/jquery.barfiller.js'></script>
     <script type='text/javascript' src='js/custom.js'></script>
+
+    <script>
+    $(document).ready(function () {
+        var bookLaunchSlider = new Swiper('.book-launch-slider', {
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+    });
+    </script>
 </body>
 </html>
