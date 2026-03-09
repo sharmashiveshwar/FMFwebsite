@@ -628,18 +628,15 @@ display:block !important;
         });
 
        var youtubeSwiper = new Swiper('.youtube-video-slider', {
-
 loop: true,
 centeredSlides: true,
 slidesPerView: 3,
 spaceBetween: 40,
 
 autoplay: {
-delay: 4500,
-disableOnInteraction: true
+delay: 4000,
+disableOnInteraction: false
 },
-
-speed: 900,
 
 pagination: {
 el: '.youtube-pagination',
@@ -651,18 +648,6 @@ breakpoints: {
 768: { slidesPerView: 2 },
 1024: { slidesPerView: 3 }
 }
-
-});
-
-// pause slider when video starts
-document.querySelectorAll('.youtube-video-slider iframe').forEach(function(video){
-
-video.addEventListener('mouseenter', function(){
-youtubeSwiper.autoplay.stop();
-});
-
-video.addEventListener('mouseleave', function(){
-youtubeSwiper.autoplay.start();
 });
 
 });
