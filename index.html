@@ -635,9 +635,11 @@ slidesPerView: 3,
 spaceBetween: 40,
 
 autoplay: {
-delay: 4000,
+delay: 4500,
 disableOnInteraction: true
 },
+
+speed: 900,
 
 pagination: {
 el: '.youtube-pagination',
@@ -652,12 +654,19 @@ breakpoints: {
 
 });
 
-// pause slider when video is clicked
+// pause slider when video starts
 document.querySelectorAll('.youtube-video-slider iframe').forEach(function(video){
-video.addEventListener('click', function(){
+
+video.addEventListener('mouseenter', function(){
 youtubeSwiper.autoplay.stop();
 });
+
+video.addEventListener('mouseleave', function(){
+youtubeSwiper.autoplay.start();
 });
+
+});
+
     </script>
 </body>
 </html>
