@@ -517,6 +517,54 @@
         </div>
     </div>
 
+    <!-- ========================================================= -->
+    <!-- YOUTUBE VIDEO SLIDER (ADDED HERE)                         -->
+    <!-- ========================================================= -->
+    <section class="video-gallery-section section-padding" style="padding: 60px 0; background-color: #f9f9f9;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center mb-5">
+                    <div class="section-title">
+                        <h2 style="font-weight: 700; color: #3E132F; margin-bottom: 20px;">Video Gallery</h2>
+                        <p style="color: #6c757d; font-size: 16px;">Watch our latest updates and foundation activities</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-12">
+                    <div class="swiper-container youtube-video-slider">
+                        <div class="swiper-wrapper">
+                            
+                            <!-- Video 1 -->
+                            <div class="swiper-slide">
+                                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                                    <iframe src="https://www.youtube.com/watch?v=mD4-12qjdGs" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                            </div>
+
+                            <!-- Video 2 -->
+                            <div class="swiper-slide">
+                                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                                    <iframe src="https://www.youtube.com/watch?v=4vHtdSDnZqc" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                            </div>
+
+                            <!-- Video 3 -->
+                            <div class="swiper-slide">
+                                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                                    <iframe src="https://www.youtube.com/watch?v=1SlnE3lYpb4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="swiper-pagination youtube-pagination" style="position: relative; margin-top: 30px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <div class="home-page-cta">
         <div class="container text-center">
             <h2>Join Us in Our Mission</h2>
@@ -572,6 +620,7 @@
 
     <script>
     $(document).ready(function () {
+        // Existing Book Launch Slider
         var bookLaunchSlider = new Swiper('.book-launch-slider', {
             loop: true,
             autoplay: {
@@ -582,6 +631,27 @@
                 el: '.swiper-pagination',
                 clickable: true,
             },
+        });
+
+        // NEW: Youtube Video Slider Initialization
+        var youtubeSwiper = new Swiper('.youtube-video-slider', {
+            slidesPerView: 1, 
+            spaceBetween: 30, 
+            loop: false,      
+            pagination: {
+                el: '.youtube-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 30
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30
+                }
+            }
         });
     });
     </script>
