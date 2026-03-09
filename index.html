@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel='shortcut icon' type='image/x-icon' href='/ico/FMF - Logo.ico' />
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/swiper.min.css">
+    <!-- Replaced local swiper css with reliable CDN to fix missing dependency issues -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css">
 
     <style>
@@ -477,7 +478,8 @@
             </div>
             <div class="row" style="align-items: center;">
                 <div class="col-md-6">
-                    <div class="swiper-container book-launch-slider">
+                    <!-- FIX: ADDED 'swiper' CLASS TO MATCH CDN VERSION -->
+                    <div class="swiper-container swiper book-launch-slider" style="width: 100%; overflow: hidden;">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide"><img src="INT_IMAGES/f1.jpg" alt="Fakirnama Launch Photo 1"></div>
                             <div class="swiper-slide"><img src="INT_IMAGES/f2.jpg" alt="Fakirnama Launch Photo 2"></div>
@@ -547,6 +549,9 @@
         </div>
     </div>
 
+    <!-- ========================================================= -->
+    <!-- YOUTUBE VIDEO SLIDER (ADDED HERE)                         -->
+    <!-- ========================================================= -->
     <section class="video-gallery-section section-padding" style="padding: 60px 0; background-color: #f9f9f9;">
         <div class="container">
             <div class="row">
@@ -560,7 +565,8 @@
             
             <div class="row">
                 <div class="col-12">
-                    <div class="swiper-container youtube-video-slider">
+                    <!-- FIX: ADDED 'swiper' CLASS TO MATCH CDN VERSION -->
+                    <div class="swiper-container swiper youtube-video-slider" style="width: 100%; overflow: hidden;">
                         <div class="swiper-wrapper">
                             
                             <!-- Video 1 -->
@@ -598,6 +604,7 @@
             </div>
         </div>
     </section>
+
     <div class="home-page-cta">
         <div class="container text-center">
             <h2>Join Us in Our Mission</h2>
@@ -644,7 +651,8 @@
     </footer>
 
     <script type='text/javascript' src='js/jquery.collapsible.min.js'></script>
-    <script type='text/javascript' src='js/swiper.min.js'></script>
+    <!-- Replaced local swiper.js with reliable CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script type='text/javascript' src='js/jquery.countdown.min.js'></script>
     <script type='text/javascript' src='js/circle-progress.min.js'></script>
     <script type='text/javascript' src='js/jquery.countTo.min.js'></script>
@@ -666,7 +674,8 @@
             },
         });
 
-       var youtubeSwiper = new Swiper('.youtube-video-slider', {
+        // NEW: Animated Youtube Video Slider Initialization
+        var youtubeSwiper = new Swiper('.youtube-video-slider', {
             centeredSlides: true, /* Puts the active slide exactly in the center */
             loop: true, /* Infinite loop */
             speed: 1000, /* Smooth 1 second transition time */
