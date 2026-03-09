@@ -340,6 +340,36 @@
             }
         }
         
+        /* Styles for Animated YouTube Video Slider */
+        .youtube-video-slider {
+            padding-top: 50px !important;
+            padding-bottom: 50px !important;
+        }
+        .youtube-video-slider .swiper-slide {
+            transition: transform 0.8s ease, opacity 0.8s ease, filter 0.8s ease;
+            transform: scale(0.75); /* Videos on the side get smaller */
+            opacity: 0.4; /* Faded out */
+            filter: blur(2px); /* Slight blur for cinematic depth */
+            pointer-events: none; /* Prevent clicking side videos */
+        }
+        .youtube-video-slider .swiper-slide-active {
+            transform: scale(1.15); /* Video in the center enlarges */
+            opacity: 1; /* Fully visible */
+            filter: blur(0);
+            pointer-events: auto; /* Clickable */
+            z-index: 10;
+        }
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .youtube-video-slider .swiper-slide-active {
+                transform: scale(1.05);
+            }
+            .youtube-video-slider .swiper-slide {
+                transform: scale(0.9);
+                opacity: 0.6;
+                filter: blur(0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -517,9 +547,6 @@
         </div>
     </div>
 
-    <!-- ========================================================= -->
-    <!-- YOUTUBE VIDEO SLIDER (ADDED HERE)                         -->
-    <!-- ========================================================= -->
     <section class="video-gallery-section section-padding" style="padding: 60px 0; background-color: #f9f9f9;">
         <div class="container">
             <div class="row">
@@ -539,21 +566,28 @@
                             <!-- Video 1 -->
                             <div class="swiper-slide">
                                 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                                    <iframe src="https://www.youtube.com/watch?v=mD4-12qjdGs" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe src="https://www.youtube.com/embed/1SlnE3lYpb4?si=w83eXmYsTAt5pB_k" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
                             </div>
 
                             <!-- Video 2 -->
                             <div class="swiper-slide">
                                 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                                    <iframe src="https://www.youtube.com/watch?v=4vHtdSDnZqc" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe src="https://www.youtube.com/embed/4vHtdSDnZqc?si=gwgWZmVng97NVYEf" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
                             </div>
 
                             <!-- Video 3 -->
                             <div class="swiper-slide">
                                 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                                    <iframe src="https://www.youtube.com/watch?v=1SlnE3lYpb4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe src="https://www.youtube.com/embed/mD4-12qjdGs?si=8MyI29tu6L93TcDr" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                            </div>
+
+                            <!-- Video 4 -->
+                            <div class="swiper-slide">
+                                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                                    <iframe src="https://www.youtube.com/embed/plNqFXjBXJI?si=35_tpKy_55swCyH1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
                             </div>
 
@@ -564,7 +598,6 @@
             </div>
         </div>
     </section>
-
     <div class="home-page-cta">
         <div class="container text-center">
             <h2>Join Us in Our Mission</h2>
@@ -633,23 +666,31 @@
             },
         });
 
-        // NEW: Youtube Video Slider Initialization
-        var youtubeSwiper = new Swiper('.youtube-video-slider', {
-            slidesPerView: 1, 
-            spaceBetween: 30, 
-            loop: false,      
+       var youtubeSwiper = new Swiper('.youtube-video-slider', {
+            centeredSlides: true, /* Puts the active slide exactly in the center */
+            loop: true, /* Infinite loop */
+            speed: 1000, /* Smooth 1 second transition time */
+            autoplay: {
+                delay: 4500, /* Stays in the center for 4.5 seconds */
+                disableOnInteraction: false,
+                reverseDirection: true, /* Moves from Left to Center to Right */
+            },
             pagination: {
                 el: '.youtube-pagination',
                 clickable: true,
             },
             breakpoints: {
+                0: {
+                    slidesPerView: 1.2, /* Shows partial next/prev videos on mobile */
+                    spaceBetween: 20
+                },
                 768: {
                     slidesPerView: 2,
                     spaceBetween: 30
                 },
                 1024: {
                     slidesPerView: 3,
-                    spaceBetween: 30
+                    spaceBetween: 40
                 }
             }
         });
