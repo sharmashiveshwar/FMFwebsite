@@ -17,8 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel='shortcut icon' type='image/x-icon' href='/ico/FMF - Logo.ico' />
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- Replaced local swiper css with reliable CDN to fix missing dependency issues -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/swiper.min.css">
     <link rel="stylesheet" href="style.css">
 
     <style>
@@ -360,6 +359,16 @@
             pointer-events: auto; /* Clickable */
             z-index: 10;
         }
+        .youtube-video-slider iframe{
+width:100%;
+height:300px;
+border-radius:10px;
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+.youtube-video-slider{
+display:block !important;
+}
         /* Mobile adjustments */
         @media (max-width: 768px) {
             .youtube-video-slider .swiper-slide-active {
@@ -478,8 +487,7 @@
             </div>
             <div class="row" style="align-items: center;">
                 <div class="col-md-6">
-                    <!-- FIX: ADDED 'swiper' CLASS TO MATCH CDN VERSION -->
-                    <div class="swiper-container swiper book-launch-slider" style="width: 100%; overflow: hidden;">
+                    <div class="swiper-container book-launch-slider">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide"><img src="INT_IMAGES/f1.jpg" alt="Fakirnama Launch Photo 1"></div>
                             <div class="swiper-slide"><img src="INT_IMAGES/f2.jpg" alt="Fakirnama Launch Photo 2"></div>
@@ -549,62 +557,8 @@
         </div>
     </div>
 
-    <!-- ========================================================= -->
-    <!-- YOUTUBE VIDEO SLIDER (ADDED HERE)                         -->
-    <!-- ========================================================= -->
-    <section class="video-gallery-section section-padding" style="padding: 60px 0; background-color: #f9f9f9;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center mb-5">
-                    <div class="section-title">
-                        <h2 style="font-weight: 700; color: #3E132F; margin-bottom: 20px;">VideoGallery</h2>
-                        <p style="color: #6c757d; font-size: 16px;">Watch our latest updates and foundation activities</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-12">
-                    <!-- FIX: ADDED 'swiper' CLASS TO MATCH CDN VERSION -->
-                    <div class="swiper-container swiper youtube-video-slider" style="width: 100%; overflow: hidden;">
-                        <div class="swiper-wrapper">
-                            
-                            <!-- Video 1 -->
-                            <div class="swiper-slide">
-                                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                                    <iframe src="https://www.youtube.com/embed/1SlnE3lYpb4?si=w83eXmYsTAt5pB_k" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div>
-
-                            <!-- Video 2 -->
-                            <div class="swiper-slide">
-                                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                                    <iframe src="https://www.youtube.com/embed/4vHtdSDnZqc?si=gwgWZmVng97NVYEf" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div>
-
-                            <!-- Video 3 -->
-                            <div class="swiper-slide">
-                                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                                    <iframe src="https://www.youtube.com/embed/mD4-12qjdGs?si=8MyI29tu6L93TcDr" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div>
-
-                            <!-- Video 4 -->
-                            <div class="swiper-slide">
-                                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                                    <iframe src="https://www.youtube.com/embed/plNqFXjBXJI?si=35_tpKy_55swCyH1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="swiper-pagination youtube-pagination" style="position: relative; margin-top: 30px;"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    <section class="video-gallery-section" style="padding: 60px 0; background:#f9f9f9;"> <div class="container"> <div class="row"> <div class="col-md-12 text-center"> <h2 style="font-weight:700;color:#3E132F;margin-bottom:20px;">Video Gallery</h2> <p style="color:#6c757d;">Watch our latest updates and foundation activities</p> </div> </div> <div class="row mt-5"> <div class="col-md-12"> <div class="swiper youtube-video-slider"> <div class="swiper-wrapper"> <div class="swiper-slide"> <iframe width="100%" height="315" src="https://www.youtube.com/embed/1SlnE3lYpb4?si=w83eXmYsTAt5pB_k" title="YouTube video" frameborder="0" allowfullscreen></iframe> </div> <div class="swiper-slide"> <iframe width="100%" height="315" src="https://www.youtube.com/embed/4vHtdSDnZqc?si=gwgWZmVng97NVYEf" title="YouTube video" frameborder="0" allowfullscreen></iframe> </div> <div class="swiper-slide"> <iframe width="100%" height="315" src="https://www.youtube.com/embed/mD4-12qjdGs?si=8MyI29tu6L93TcDr" title="YouTube video" frameborder="0" allowfullscreen></iframe> </div> <div class="swiper-slide"> <iframe width="100%" height="315" src="https://www.youtube.com/embed/plNqFXjBXJI?si=35_tpKy_55swCyH1" title="YouTube video" frameborder="0" allowfullscreen></iframe> </div> </div> <div class="swiper-pagination youtube-pagination"></div> </div> </div> </div> </div> </section>
+    
     <div class="home-page-cta">
         <div class="container text-center">
             <h2>Join Us in Our Mission</h2>
@@ -651,8 +605,7 @@
     </footer>
 
     <script type='text/javascript' src='js/jquery.collapsible.min.js'></script>
-    <!-- Replaced local swiper.js with reliable CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script type='text/javascript' src='js/swiper.min.js'></script>
     <script type='text/javascript' src='js/jquery.countdown.min.js'></script>
     <script type='text/javascript' src='js/circle-progress.min.js'></script>
     <script type='text/javascript' src='js/jquery.countTo.min.js'></script>
@@ -674,35 +627,28 @@
             },
         });
 
-        // NEW: Animated Youtube Video Slider Initialization
-        var youtubeSwiper = new Swiper('.youtube-video-slider', {
-            centeredSlides: true, /* Puts the active slide exactly in the center */
-            loop: true, /* Infinite loop */
-            speed: 1000, /* Smooth 1 second transition time */
-            autoplay: {
-                delay: 4500, /* Stays in the center for 4.5 seconds */
-                disableOnInteraction: false,
-                reverseDirection: true, /* Moves from Left to Center to Right */
-            },
-            pagination: {
-                el: '.youtube-pagination',
-                clickable: true,
-            },
-            breakpoints: {
-                0: {
-                    slidesPerView: 1.2, /* Shows partial next/prev videos on mobile */
-                    spaceBetween: 20
-                },
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 30
-                },
-                1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 40
-                }
-            }
-        });
+       var youtubeSwiper = new Swiper('.youtube-video-slider', {
+loop: true,
+centeredSlides: true,
+slidesPerView: 3,
+spaceBetween: 40,
+
+autoplay: {
+delay: 4000,
+disableOnInteraction: false
+},
+
+pagination: {
+el: '.youtube-pagination',
+clickable: true
+},
+
+breakpoints: {
+0: { slidesPerView: 1 },
+768: { slidesPerView: 2 },
+1024: { slidesPerView: 3 }
+}
+});
     });
     </script>
 </body>
